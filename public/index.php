@@ -3,6 +3,8 @@ declare(strict_types=1);
 require __DIR__ . '/../app/bootstrap.php';
 
 $enInicio = true;
+// Versión estática (GitHub Pages): los formularios se envían por WhatsApp.
+$estatico = defined('ESTATICO');
 $ok  = flash_get('ok');
 $err = flash_get('error');
 $old = $_SESSION['old'] ?? [];
@@ -357,14 +359,18 @@ require __DIR__ . '/../app/partials/header.php';
         <div>
             <p class="font-display text-sm font-semibold uppercase tracking-wider text-primary-light">Seguimiento en línea</p>
             <h2 class="mt-2 font-display text-3xl font-bold text-white sm:text-4xl">Consulta el estado de tu equipo</h2>
+            <?php if ($estatico): ?>
+            <p class="mt-4 text-lg text-blue-soft">Envíanos el código de tu orden de servicio por WhatsApp y te respondemos con el estado de tu equipo, la <strong>orden</strong>, el <strong>informe técnico</strong> y la <strong>garantía</strong> de la reparación.</p>
+            <?php else: ?>
             <p class="mt-4 text-lg text-blue-soft">Con el código de tu orden de servicio puedes ver en línea tu <strong>orden</strong>, el <strong>informe técnico</strong> y la <strong>garantía</strong> de la reparación, y descargarlos en PDF.</p>
+            <?php endif; ?>
             <ul class="mt-6 flex flex-wrap gap-2 text-sm">
                 <?php foreach (['Orden de servicio', 'Informe técnico', 'Certificado de garantía'] as $d): ?>
                     <li class="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5"><?= icon('doc', 'h-4 w-4') ?><?= e($d) ?></li>
                 <?php endforeach; ?>
             </ul>
         </div>
-        <form action="consulta.php" method="post" class="rounded-2xl bg-white p-6 text-ink-text shadow-lift sm:p-8" novalidate data-validate>
+        <form action="consulta.php" method="post" class="rounded-2xl bg-white p-6 text-ink-text shadow-lift sm:p-8" novalidate data-validate<?= $estatico ? ' data-wa="consulta" data-wa-numero="' . e(cfg('whatsapp')) . '"' : '' ?>>
             <?= csrf_field() ?>
             <div class="grid gap-4 sm:grid-cols-2">
                 <div>
@@ -376,8 +382,12 @@ require __DIR__ . '/../app/partials/header.php';
                     <input class="input font-mono" id="c-tel" name="tel4" required inputmode="numeric" maxlength="4" pattern="[0-9]{4}" placeholder="0000" autocomplete="off">
                 </div>
             </div>
+            <?php if ($estatico): ?>
+            <button class="btn-primary mt-5 w-full" type="submit"><?= icon_social('whatsapp', 'h-4 w-4') ?> Consultar por WhatsApp</button>
+            <?php else: ?>
             <button class="btn-primary mt-5 w-full" type="submit"><?= icon('search', 'h-4 w-4') ?> Consultar mi equipo</button>
             <p class="mt-3 text-center text-xs text-ink-muted">Ejemplo: <span class="font-mono text-blue-brand">JF-2026-0001</span> y <span class="font-mono text-blue-brand">0651</span></p>
+            <?php endif; ?>
         </form>
     </div>
 </section>
@@ -427,7 +437,7 @@ require __DIR__ . '/../app/partials/header.php';
         </div>
 
         <div class="lg:col-span-7">
-            <form action="contacto.php" method="post" class="card space-y-5 p-6 sm:p-8" novalidate data-validate>
+            <form action="contacto.php" method="post" class="card space-y-5 p-6 sm:p-8" novalidate data-validate<?= $estatico ? ' data-wa="contacto" data-wa-numero="' . e(cfg('whatsapp')) . '"' : '' ?>>
                 <?php if ($ok): ?><div class="alert-ok" role="status"><?= e($ok) ?></div><?php endif; ?>
                 <?php if ($err): ?><div class="alert-err" role="alert"><?= e($err) ?></div><?php endif; ?>
                 <?= csrf_field() ?>
@@ -475,7 +485,11 @@ require __DIR__ . '/../app/partials/header.php';
                     <input type="checkbox" name="acepto" value="1" required class="mt-0.5 h-4 w-4 rounded border-slate-300 text-blue-brand focus:ring-blue-accent">
                     <span>Acepto la <a href="privacidad.php" class="text-blue-brand underline">política de privacidad</a> y el uso de mis datos para atender mi solicitud. *</span>
                 </label>
+                <?php if ($estatico): ?>
+                <button class="btn-primary w-full py-4 text-base" type="submit"><?= icon_social('whatsapp', 'h-5 w-5') ?> Enviar por WhatsApp</button>
+                <?php else: ?>
                 <button class="btn-primary w-full py-4 text-base" type="submit">Enviar solicitud <?= icon('arrow', 'h-5 w-5') ?></button>
+                <?php endif; ?>
             </form>
         </div>
     </div>

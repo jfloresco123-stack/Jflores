@@ -38,6 +38,25 @@
     });
   }
 
+  // --- Texto de WhatsApp a partir de los campos del formulario ---
+  const mensajeWhatsApp = (form) => {
+    const d = new FormData(form);
+    const v = (k) => String(d.get(k) || '').trim();
+    if (form.dataset.wa === 'consulta') {
+      return 'Hola Jflores@, quiero consultar el estado de mi equipo.\n'
+        + 'Orden: ' + v('codigo').toUpperCase() + '\n'
+        + 'Últimos 4 dígitos de mi celular: ' + v('tel4');
+    }
+    const lineas = [
+      'Hola Jflores@, quiero una cotización.',
+      'Nombre: ' + v('nombre') + ' (' + v('tipo') + ')',
+      'Correo: ' + v('correo'),
+    ];
+    if (v('telefono')) lineas.push('Celular: ' + v('telefono'));
+    lineas.push('Equipo: ' + v('equipo'), 'Falla: ' + v('descripcion'));
+    return lineas.join('\n');
+  };
+
   // --- Validación en cliente (la validación real ocurre en el servidor) ---
   document.querySelectorAll('form[data-validate]').forEach((form) => {
     form.addEventListener('submit', (ev) => {
@@ -54,6 +73,13 @@
       });
       if (!valido) {
         ev.preventDefault();
+        return;
+      }
+      // Versión estática (GitHub Pages): sin servidor, el mensaje se envía por WhatsApp.
+      if (form.dataset.wa) {
+        ev.preventDefault();
+        const texto = mensajeWhatsApp(form);
+        window.open('https://wa.me/' + form.dataset.waNumero + '?text=' + encodeURIComponent(texto), '_blank', 'noopener');
         return;
       }
       const btn = form.querySelector('button[type="submit"]');

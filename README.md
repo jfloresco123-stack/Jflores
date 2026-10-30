@@ -10,6 +10,10 @@ Web informativa de **Jflores@**: reparación de celulares, laptops, PC, TV, impr
 
 Para probar la consulta de documentos: orden `JF-2026-0001`, dígitos `0651`.
 
+## Versión publicada en GitHub Pages
+
+Cada `git push` a `main` genera una versión estática (sin PHP) con `scripts/build-estatico.php` y la publica en <https://jfloresco123-stack.github.io/Jflores/>. En esa versión, el formulario de contacto y la consulta de órdenes se envían por WhatsApp. Para generarla en local: `tools\php\php.exe -c tools\php\php.ini scripts\build-estatico.php` (sale en `site/`).
+
 ## Documentación
 
 - [docs/README.md](docs/README.md): estructura, edición, compilación y cómo subir la web a la nube.

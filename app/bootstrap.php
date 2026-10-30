@@ -64,6 +64,10 @@ function csrf_token(): string
 
 function csrf_field(): string
 {
+    // La versión estática (GitHub Pages) no tiene servidor que valide el token.
+    if (defined('ESTATICO')) {
+        return '';
+    }
     return '<input type="hidden" name="csrf" value="' . e(csrf_token()) . '">';
 }
 
