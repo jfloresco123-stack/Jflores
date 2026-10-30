@@ -94,6 +94,22 @@ require __DIR__ . '/../app/partials/header.php';
 
 <!-- ============ HERO ============ -->
 <section id="inicio" class="bg-hero relative overflow-hidden">
+    <!-- Portada para celular: imagen de impacto antes del texto (en escritorio se usa la columna de la derecha) -->
+    <div class="hero-movil lg:hidden">
+        <img src="assets/img/trabajos/reparacion-placa.webp" width="1100" height="723" alt="" class="hero-movil-foto" fetchpriority="high">
+        <div class="hero-movil-velo" aria-hidden="true"></div>
+        <span class="hero-movil-scan" aria-hidden="true"></span>
+        <div class="hero-movil-contenido">
+            <div class="hero-movil-logo"><?= logo('h-16 sm:h-20', 'oscuro') ?></div>
+            <p class="hero-movil-eslogan">Reparamos a nivel de placa</p>
+            <ul class="hero-movil-chips">
+                <?php foreach (['Celulares', 'Laptops y PC', 'TV', 'Impresoras 3D'] as $i => $chip): ?>
+                    <li class="hero-movil-chip-<?= $i ?>"><?= e($chip) ?></li>
+                <?php endforeach; ?>
+            </ul>
+            <a href="<?= e(wa_link('Hola Jflores@, quiero cotizar una reparación.')) ?>" target="_blank" rel="noopener noreferrer" class="btn-primary hero-movil-cta px-7 py-4 text-base"><?= icon_social('whatsapp', 'h-5 w-5') ?> Cotizar por WhatsApp</a>
+        </div>
+    </div>
     <div class="container-x grid items-center gap-12 py-14 lg:grid-cols-2 lg:py-20">
         <div>
             <nav aria-label="Ruta" class="text-xs text-ink-muted">
@@ -116,7 +132,7 @@ require __DIR__ . '/../app/partials/header.php';
             </div>
         </div>
 
-        <div class="relative">
+        <div class="relative hidden lg:block">
             <img src="assets/img/trabajos/reparacion-placa.webp" width="1100" height="723" alt="Técnico de Jflores@ reparando la placa de un iPhone con pinzas de precisión"
                  class="w-full rounded-3xl object-cover shadow-lift ring-8 ring-white">
             <div class="absolute -bottom-6 left-4 flex items-center gap-3 rounded-2xl bg-white p-4 shadow-lift sm:left-8">
