@@ -1,0 +1,13 @@
+{
+  "php.validate.executablePath": "tools/php/php.exe",
+  "intelephense.environment.phpVersion": "8.4.0",
+  "tailwindCSS.includeLanguages": { "php": "html" },
+  "tailwindCSS.experimental.configFile": "tailwind.config.js",
+  "css.lint.unknownAtRules": "ignore",
+  "files.associations": { "*.css": "tailwindcss" },
+  "editor.quickSuggestions": { "strings": "on" },
+  "files.exclude": { "tools/php": true, "tools/tailwindcss.exe": true },
+  "search.exclude": { "public/assets/css/app.css": true, "tools": true },
+  "files.encoding": "utf8",
+  "files.eol": "\n"
+}

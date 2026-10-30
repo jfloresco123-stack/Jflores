@@ -1,0 +1,37 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Servidor local (PHP)",
+      "type": "shell",
+      "command": "${workspaceFolder}\\tools\\php\\php.exe",
+      "args": ["-c", "tools\\php\\php.ini", "-S", "localhost:8000", "-t", "public"],
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": { "panel": "dedicated", "reveal": "always" }
+    },
+    {
+      "label": "Tailwind: vigilar cambios",
+      "type": "shell",
+      "command": "${workspaceFolder}\\tools\\tailwindcss.exe",
+      "args": ["-c", "tailwind.config.js", "-i", "src\\input.css", "-o", "public\\assets\\css\\app.css", "--watch"],
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": { "panel": "dedicated", "reveal": "silent" }
+    },
+    {
+      "label": "Tailwind: compilar producción",
+      "type": "shell",
+      "command": "${workspaceFolder}\\tools\\tailwindcss.exe",
+      "args": ["-c", "tailwind.config.js", "-i", "src\\input.css", "-o", "public\\assets\\css\\app.css", "--minify"],
+      "problemMatcher": []
+    },
+    {
+      "label": "Iniciar desarrollo",
+      "dependsOn": ["Tailwind: vigilar cambios", "Servidor local (PHP)"],
+      "dependsOrder": "parallel",
+      "problemMatcher": [],
+      "group": { "kind": "build", "isDefault": true }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+# jflores@ – Hardening Apache (hosting compartido / cPanel)
+
+Options -Indexes -MultiViews
+ServerSignature Off
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Forzar HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Bloquear archivos ocultos, de base de datos y respaldos
+    RewriteRule (^|/)\.(?!well-known) - [F,L]
+    RewriteRule \.(sqlite|db|sql|bak|log|ini|env|md)$ - [F,L]
+
+    # Bloquear carpetas internas si se subieran por error dentro del webroot
+    RewriteRule ^(app|docs|src|tools|img)(/|$) - [F,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+    Header always set X-Frame-Options "DENY"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'"
+    Header always unset X-Powered-By
+
+    <FilesMatch "\.(css|js|svg|jpg|jpeg|png|webp)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_php.c>
+    php_flag display_errors Off
+    php_flag expose_php Off
+    php_value session.cookie_httponly 1
+    php_value session.cookie_secure 1
+    php_value session.use_strict_mode 1
+</IfModule>

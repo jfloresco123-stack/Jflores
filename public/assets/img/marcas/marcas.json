@@ -1,0 +1,156 @@
+{
+    "audio-video": [
+        {
+            "slug": "jbl",
+            "nombre": "JBL",
+            "color": "#FF3300",
+            "archivo": "assets/img/marcas/audio-video/jbl.svg"
+        },
+        {
+            "slug": "lg",
+            "nombre": "LG",
+            "color": "#A50034",
+            "archivo": "assets/img/marcas/audio-video/lg.svg"
+        },
+        {
+            "slug": "sony",
+            "nombre": "Sony",
+            "color": "#000000",
+            "archivo": "assets/img/marcas/audio-video/sony.svg"
+        }
+    ],
+    "celulares": [
+        {
+            "slug": "android",
+            "nombre": "Android",
+            "color": "#3DDC84",
+            "archivo": "assets/img/marcas/celulares/android.svg"
+        },
+        {
+            "slug": "apple",
+            "nombre": "Apple",
+            "color": "#000000",
+            "archivo": "assets/img/marcas/celulares/apple.svg"
+        },
+        {
+            "slug": "honor",
+            "nombre": "Honor",
+            "color": "#000000",
+            "archivo": "assets/img/marcas/celulares/honor.svg"
+        },
+        {
+            "slug": "huawei",
+            "nombre": "Huawei",
+            "color": "#FF0000",
+            "archivo": "assets/img/marcas/celulares/huawei.svg"
+        },
+        {
+            "slug": "motorola",
+            "nombre": "Motorola",
+            "color": "#E1140A",
+            "archivo": "assets/img/marcas/celulares/motorola.svg"
+        },
+        {
+            "slug": "oppo",
+            "nombre": "OPPO",
+            "color": "#2D683D",
+            "archivo": "assets/img/marcas/celulares/oppo.svg"
+        },
+        {
+            "slug": "samsung",
+            "nombre": "Samsung",
+            "color": "#1428A0",
+            "archivo": "assets/img/marcas/celulares/samsung.svg"
+        },
+        {
+            "slug": "vivo",
+            "nombre": "vivo",
+            "color": "#415FFF",
+            "archivo": "assets/img/marcas/celulares/vivo.svg"
+        },
+        {
+            "slug": "xiaomi",
+            "nombre": "Xiaomi",
+            "color": "#FF6900",
+            "archivo": "assets/img/marcas/celulares/xiaomi.svg"
+        }
+    ],
+    "computo": [
+        {
+            "slug": "acer",
+            "nombre": "Acer",
+            "color": "#83B81A",
+            "archivo": "assets/img/marcas/computo/acer.svg"
+        },
+        {
+            "slug": "asus",
+            "nombre": "ASUS",
+            "color": "#000000",
+            "archivo": "assets/img/marcas/computo/asus.svg"
+        },
+        {
+            "slug": "dell",
+            "nombre": "Dell",
+            "color": "#007DB8",
+            "archivo": "assets/img/marcas/computo/dell.svg"
+        },
+        {
+            "slug": "hp",
+            "nombre": "HP",
+            "color": "#0096D6",
+            "archivo": "assets/img/marcas/computo/hp.svg"
+        },
+        {
+            "slug": "lenovo",
+            "nombre": "Lenovo",
+            "color": "#E2231A",
+            "archivo": "assets/img/marcas/computo/lenovo.svg"
+        },
+        {
+            "slug": "msi",
+            "nombre": "MSI",
+            "color": "#FF0000",
+            "archivo": "assets/img/marcas/computo/msi.svg"
+        },
+        {
+            "slug": "toshiba",
+            "nombre": "Toshiba",
+            "color": "#FF0000",
+            "archivo": "assets/img/marcas/computo/toshiba.svg"
+        }
+    ],
+    "electronica": [
+        {
+            "slug": "arduino",
+            "nombre": "Arduino",
+            "color": "#00878F",
+            "archivo": "assets/img/marcas/electronica/arduino.svg"
+        },
+        {
+            "slug": "bambulab",
+            "nombre": "Bambu Lab",
+            "color": "#00AE42",
+            "archivo": "assets/img/marcas/electronica/bambulab.svg"
+        },
+        {
+            "slug": "creality",
+            "nombre": "Creality",
+            "color": "#000000",
+            "archivo": "assets/img/marcas/electronica/creality.svg"
+        },
+        {
+            "slug": "raspberrypi",
+            "nombre": "Raspberry Pi",
+            "color": "#A22846",
+            "archivo": "assets/img/marcas/electronica/raspberrypi.svg"
+        }
+    ],
+    "impresoras": [
+        {
+            "slug": "epson",
+            "nombre": "Epson",
+            "color": "#003399",
+            "archivo": "assets/img/marcas/impresoras/epson.svg"
+        }
+    ]
+}

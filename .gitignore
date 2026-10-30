@@ -1,0 +1,6 @@
+# Binarios locales (PHP portable, Tailwind CLI)
+tools/
+
+# Base de datos con datos de clientes
+app/data/*.sqlite
+app/data/*.sqlite-*
