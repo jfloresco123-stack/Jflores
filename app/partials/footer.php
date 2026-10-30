@@ -45,6 +45,10 @@
                 <li class="flex items-start gap-2"><?= icon('clock', 'mt-0.5 h-4 w-4 text-primary') ?><?= e(cfg('horario')) ?></li>
                 <li class="flex items-start gap-2"><?= icon('pin', 'mt-0.5 h-4 w-4 text-primary') ?><?= e(cfg('ubicacion')) ?></li>
             </ul>
+            <div class="mt-6 flex items-center gap-3">
+                <img src="assets/img/qr-web.png" alt="Código QR de la web de Jflores@" width="96" height="96" loading="lazy" class="h-24 w-24 rounded-lg bg-white p-1">
+                <p class="text-xs text-slate-400">Escanea el código para abrir la web en tu celular o compartirla.</p>
+            </div>
         </div>
     </div>
     <div class="border-t border-white/10">
