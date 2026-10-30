@@ -1,7 +1,7 @@
 <?php
 /** @var string $titulo  @var string $descripcion */
 require_once __DIR__ . '/icons.php';
-$titulo = $titulo ?? 'Jflores@ · Servicio Técnico y Microsoldadura en Lima';
+$titulo = $titulo ?? 'Jflores@ · Servicio Técnico y Microsoldadura';
 $descripcion = $descripcion ?? 'Reparación de celulares, laptops, PC, televisores, impresoras e impresoras 3D. Microsoldadura profesional, diagnóstico en 24–48 h, informe técnico y garantía escrita.';
 $enInicio = $enInicio ?? false;
 $base = $enInicio ? '' : 'index.php';
